@@ -3,8 +3,8 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'index.html')
 
-def login(request):
-    return render(request, 'login.html')
+def loginpage(request):
+    return render(request, 'loginpage.html')
 
-def register(request):
-    return render(request, 'register.html')
+def registerpage(request):
+    return render(request, 'registerpage.html')
