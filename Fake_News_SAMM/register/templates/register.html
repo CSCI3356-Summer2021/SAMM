@@ -17,8 +17,8 @@
         }
     </style>
 </head>
-<body>
-    <form method="POST" class="form-group">
+<body >
+    <form method="POST" class="m-4">
         {% csrf_token %} <!--protection token-->
         {{form.as_p}} <!--makes the format look better, as paragraph-->
         <button type="submit" class="btn btn-success">Register</button> <!--submits to database-->
