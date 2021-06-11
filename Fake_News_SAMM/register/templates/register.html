@@ -18,10 +18,15 @@
     </style>
 </head>
 <body>
-    <form method="POST" class="form-group">
+    <form method="POST" class="form-group"><!--form-group is build in style-->
         {% csrf_token %} <!--protection token-->
-        {{form.as_p}} <!--makes the format look better, as paragraph-->
+        {{form.as_p}} <!-- Links the form template || .as_p makes the format look better, as paragraph-->
         <button type="submit" class="btn btn-success">Register</button> <!--submits to database-->
+        {% if messages %} <!--Use this if statement since message module was used in views.py-->
+            {% for message in messages %}
+                <div class="messages">{{ message }}</div> <!-- Displays message from views.py-->
+            {% endfor %}
+        {% endif %}
     </form>
 </body>
 </html>
