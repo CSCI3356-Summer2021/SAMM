@@ -1,0 +1,52 @@
+:root {
+    --darkred: #501315;
+    --maroon: #8a100b;
+    --brightRed: #b30000;
+    --brightgold: #d79713;
+    --bordercolor: #726158;
+}
+body{
+    margin-top: 20px;
+    background-color: var(--darkred);
+}
+.main {
+    padding: 15px;
+    font-family: 'Segoe UI';
+}
+.topbar{
+    background-color: var(--maroon);
+    overflow: hidden;
+}
+.topbar a{
+    float: right;
+    color: whitesmoke;
+    text-align: center;
+    padding: 20px 26px;
+    text-decoration: none ;
+    font-size: 26px;
+}
+.sidebar{
+    background-color: white;
+    color: black;
+    height: 100%;
+}
+.sidebar a{
+    
+    margin-left: 10px;
+    display: block;
+    color: maroon;
+    padding-bottom: 10px;
+    font-size: 30px;
+    text-decoration: none;
+}
+.card{ 
+    
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+}
+.content{
+    background-color: whitesmoke;
+}

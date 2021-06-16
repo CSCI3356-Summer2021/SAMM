@@ -1,0 +1,147 @@
+:root {
+    --darkred: #501315;
+    --maroon: #8a100b;
+    --brightRed: #b30000;
+    --brightgold: #d79713;
+    --bordercolor: #726158;
+}
+
+
+.tweetbox-bottom {
+    float: right;
+    position: relative;
+    bottom: -2.5em;
+    padding-right: 3em;
+}
+
+.post-txt {
+    position: relative;
+    left: 1em;
+    bottom: 2em;
+}
+
+ol {
+    list-style-type: none;
+}
+
+.timeline-item {
+    padding-top: 1em;
+}
+
+.post-container{
+    border-style: solid;
+    padding: 1em;
+    border-color: var(--bordercolor);
+    position: relative;
+    right: 1em;
+    border-radius: 1em;
+}
+
+.thread1 {
+    text-decoration: none;
+}
+
+.profiletxt-board {
+    color: white;
+    font-weight:bold;
+    font-size: 1em;
+    position: relative;
+    bottom: 1em;
+}
+
+.content {
+    color: white;
+    font-weight:normal;
+}
+
+.tweet-btn {
+    position: relative;
+    background: var(--brightRed);
+    font-weight: bolder;
+    color: white;
+    border-style: none;
+    border-radius: 3em;
+    height: 3em;
+    width: 8em;
+    cursor: pointer;
+}
+
+.post-txt {
+    border: none;
+    outline: none;
+    position: relative;
+    bottom: 0.5em;
+    width: 30em;
+    height: 3em;
+    background: var(--darkred);
+    color: white;
+    font-size: 1.25em;
+}
+
+.post-txt::placeholder{
+    color: var(--bordercolor);
+}
+
+.tweet-btn:hover {
+    background: var(--brightgold);
+}
+
+.bottom {
+    color: white;
+    font-weight:lighter;
+    font-size: 0.85em;
+    height: 4.5em;
+}
+
+.reaction-btns {
+    float: right;
+    position: relative;
+    top: 0.3em;
+}
+
+.like-btn {
+    padding: 0.4em;
+    max-height: 2em;
+}
+
+.like-btn:hover{
+    border-radius:4em;
+    background-color: var(--brightRed);
+}
+
+.comment-btn {
+    padding: 0.4em;
+    max-height: 2em;
+}
+
+.comment-btn:hover{
+    border-radius:4em;
+    background-color: var(--brightRed);
+}
+
+.repost-btn{
+    padding: 0.4em;
+    max-height: 2em;
+}
+
+.repost-btn:hover{
+    border-radius:4em;
+    background-color: var(--brightRed);
+}
+
+.like-count {
+    position: relative;
+    bottom: 1em;
+}
+
+.comment-count {
+    margin-left: 6em;
+    position: relative;
+    bottom: 1em;
+}
+
+.repost-count {
+    margin-left: 6em;
+    position: relative;
+    bottom: 1em;
+}
