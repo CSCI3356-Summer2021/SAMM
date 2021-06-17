@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 
 
+
+
 urlpatterns = [
     path('landing/', include('landing.urls')),
     path('register/', include('register.urls')), 
     path('home/', include('home.urls')),
-    path('', include("django.contrib.auth.urls")), #built in login functions
+    path('landing/', include('django.contrib.auth.urls')), #built in login functions
     path('admin/', admin.site.urls),
 ]
+
