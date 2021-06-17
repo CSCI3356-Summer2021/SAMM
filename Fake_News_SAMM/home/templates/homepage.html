@@ -1,23 +1,139 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <title>Registration</title>
-    <style>
-        .container{
-            text-align: center;
-            margin-top: 100px;
-        }
-        .row2{
-            margin: 10px;
-        }
-    </style>
+    <title>Eagle Tweets - Frontpage</title>
+    <link rel="stylesheet" href="css/home_template/template.css">
+    <link rel="stylesheet" href="css/post_style.css">
+    <link rel="stylesheet" href="css/tweet_box.css">
 </head>
-<body>
-    <div>Welcome to your homepage!</div>
+
+<script text="/javascript">
+    function postContent() {
+        var str = document.getElementById("input-txt").value;
+        var newPost = new Post("kennywang", currentDate(), currentTime(), str, 0, 0, 0);
+        displayPost(newPost);
+    }
+</script>
+
+<body >
+    <div class = "left-col">
+        <div class = "container1">
+
+            <nav>
+                <ul class="navlinks">
+                    <li><a href="#"> <img class="logo" src="graphics/icons/Boston_College_Eagles_logo.jpg" alt="Home"> </a></li>
+
+                    <ul class="home">
+                        <li>
+                            <a href="#" class="current"> 
+                                <div class="navbutton">
+                                    <img class="icon" src="graphics/icons/icons8-home-96.png" alt="Home"> 
+                                    <span class="navtext"> Home </span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="explore">
+                        <li>
+                            <a href="#" class="noncurrent"> 
+                                <div class="navbutton">
+                                    <img class="icon" src="graphics/icons/icons8-compass-96.png" alt="Explore"> 
+                                    <span class="navtext"> Explore </span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="messages">
+                        <li>
+                            <a href="#" class="noncurrent"> 
+                                <div class="navbutton">
+                                    <img class="icon" src="graphics/icons/icons8-messages-100.png" alt="Messages"> 
+                                    <span class="navtext"> Messages </span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="notifications">
+                        <li>
+                            <a href="#" class="noncurrent">
+                                <div class="navbutton">
+                                    <img class="icon" src="graphics/icons/icons8-notification-96.png" alt="Notifications">
+                                    <span class="navtext"> Notifications </span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="profile">
+                        <li>
+                            <a href="#" class="noncurrent"> 
+                                <div class="navbutton">
+                                    <img class="icon" src="graphics/icons/icons8-male-user-96.png" alt="Profile"> 
+                                    <span class="navtext"> Profile </span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </ul>
+
+                <a href="#" class="postbttnlink">
+                    <div class="postbutton">
+                        <span class="postbttntxt">Post</span>
+                    </div>
+                </a>
+
+                <a href="#" class="profilelink">
+                    <div class="profilebox">
+                        <img class="profilePic" src="graphics/profile_pics/IMG-9004.jpg" alt="Profile">
+                        <span class="profiletxt">@kennywang</span>
+                    </div>
+                </a>
+
+            </nav>
+        </div>
+    </div>
+
+    <div class="tweetbox">
+        <div class="poster">
+            <img class="profilePic" src="graphics/profile_pics/IMG-9004.jpg" alt="Profile">
+            
+            <input class="post-txt" id="input-txt" type="text" placeholder="What's up?"></input>
+
+            <div class="tweetbox-bottom">
+                <input class="tweet-btn" onclick="postContent()" type="submit" value="Post">
+            </div>
+        </div>
+    </div>
+
+    <div class="mid-col">
+      <ol class="timeline">
+                <script src="javascript/posts.js"></script>
+                <script>
+                    console.log(threads);
+                    threads.forEach((element) => {
+                        displayPost(element);
+                    });
+                </script>
+      </ol>
+
+
+
+    </div>
+
+
+    <div class = "right-col">
+        <input class="searchbar" type="text" name="" placeholder="Search users...">
+
+        <section class="results">
+            <nav>
+                <ul>
+
+                </ul>
+            </nav>
+        </section>
+    </div>
+
+
 </body>
 </html>
