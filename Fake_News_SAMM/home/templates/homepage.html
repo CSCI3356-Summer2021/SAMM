@@ -1,12 +1,14 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eagle Tweets - Frontpage</title>
-    <link rel="stylesheet" href="css/home_template/template.css">
-    <link rel="stylesheet" href="css/post_style.css">
-    <link rel="stylesheet" href="css/tweet_box.css">
+    <link rel="stylesheet" href="{% static 'home/css/home_template/template.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/post_style.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/tweet_box.css' %}">
 </head>
 
 <script text="/javascript">
@@ -23,13 +25,13 @@
 
             <nav>
                 <ul class="navlinks">
-                    <li><a href="#"> <img class="logo" src="graphics/icons/Boston_College_Eagles_logo.jpg" alt="Home"> </a></li>
+                    <li><a href="#"> <img class="icon" src="{% static 'home/graphics/icons/Boston_College_Eagles_logo.jpg' %}" alt="Home"> </a></li>
 
                     <ul class="home">
                         <li>
                             <a href="#" class="current"> 
                                 <div class="navbutton">
-                                    <img class="icon" src="graphics/icons/icons8-home-96.png" alt="Home"> 
+                                    <img class="icon" src="{% static 'home/graphics/icons/icons8-home-96.png' %}" alt="Home"> 
                                     <span class="navtext"> Home </span>
                                 </div>
                             </a>
@@ -39,7 +41,7 @@
                         <li>
                             <a href="#" class="noncurrent"> 
                                 <div class="navbutton">
-                                    <img class="icon" src="graphics/icons/icons8-compass-96.png" alt="Explore"> 
+                                    <img class="icon" src="{% static 'home/graphics/icons/icons8-compass-96.png' %}" alt="Explore"> 
                                     <span class="navtext"> Explore </span>
                                 </div>
                             </a>
@@ -49,7 +51,7 @@
                         <li>
                             <a href="#" class="noncurrent"> 
                                 <div class="navbutton">
-                                    <img class="icon" src="graphics/icons/icons8-messages-100.png" alt="Messages"> 
+                                    <img class="icon" src="{% static 'home/graphics/icons/icons8-messages-100.png' %}" alt="Messages"> 
                                     <span class="navtext"> Messages </span>
                                 </div>
                             </a>
@@ -59,7 +61,7 @@
                         <li>
                             <a href="#" class="noncurrent">
                                 <div class="navbutton">
-                                    <img class="icon" src="graphics/icons/icons8-notification-96.png" alt="Notifications">
+                                    <img class="icon" src="{% static 'home/graphics/icons/icons8-notification-96.png' %}" alt="Notifications">
                                     <span class="navtext"> Notifications </span>
                                 </div>
                             </a>
@@ -69,7 +71,7 @@
                         <li>
                             <a href="#" class="noncurrent"> 
                                 <div class="navbutton">
-                                    <img class="icon" src="graphics/icons/icons8-male-user-96.png" alt="Profile"> 
+                                    <img class="icon" src="{% static 'home/graphics/icons/icons8-male-user-96.png' %}" alt="Profile"> 
                                     <span class="navtext"> Profile </span>
                                 </div>
                             </a>
@@ -85,7 +87,7 @@
 
                 <a href="#" class="profilelink">
                     <div class="profilebox">
-                        <img class="profilePic" src="graphics/profile_pics/IMG-9004.jpg" alt="Profile">
+                        <img class="profilePic" src="{% static 'home/graphics/profile_pics/IMG-9004.jpg' %}" alt="Profile">
                         <span class="profiletxt">@kennywang</span>
                     </div>
                 </a>
@@ -96,7 +98,7 @@
 
     <div class="tweetbox">
         <div class="poster">
-            <img class="profilePic" src="graphics/profile_pics/IMG-9004.jpg" alt="Profile">
+            <img class="profilePic" src="{% static 'home/graphics/profile_pics/IMG-9004.jpg' %}" alt="Profile">
             
             <input class="post-txt" id="input-txt" type="text" placeholder="What's up?"></input>
 
@@ -108,7 +110,7 @@
 
     <div class="mid-col">
       <ol class="timeline">
-                <script src="javascript/posts.js"></script>
+                <script src="{% static 'home/javascript/posts.js' %}"></script>
                 <script>
                     console.log(threads);
                     threads.forEach((element) => {
