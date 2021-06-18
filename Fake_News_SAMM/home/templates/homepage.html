@@ -14,7 +14,7 @@
 <script text="/javascript">
     function postContent() {
         var str = document.getElementById("input-txt").value;
-        var newPost = new Post("kennywang", currentDate(), currentTime(), str, 0, 0, 0);
+        var newPost = new Post("kennywang", currentDate(), currentTime(), str, document.getElementById('image'), 0, 0, 0);
         displayPost(newPost);
     }
 </script>
