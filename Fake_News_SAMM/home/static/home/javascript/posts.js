@@ -2,7 +2,8 @@ function displayPost(post){
     var container = document.querySelector('ol');
     
     var html = 
-    `<li class="timeline-item">
+    `
+    <li class="timeline-item">
         <div class="post-container">
             <div class="poster1">
                 <a class="profilelink" href="#">
@@ -26,11 +27,11 @@ function displayPost(post){
 
                 <div class="reaction-btns">
                     <span class="like-count"> ${post.like_count} </span>
-                    <input class="like-btn" type="image" src="graphics/icons/icons8-heart-52.png">
+                    <input class="like-btn" type="image" src="{% static 'home/graphics/icons/icons8-heart-52.png' %}">
                     <span class="comment-count"> ${post.comment_count} </span>
-                    <input class="comment-btn" type="image" src="graphics/icons/icons8-comments-52.png">
+                    <input class="comment-btn" type="image" src="{% static 'home/graphics/icons/icons8-comments-52.png' %}">
                     <span class="repost-count"> ${post.repost_count} </span>
-                    <input class="repost-btn" type="image" src="graphics/icons/icons8-retweet-48.png">
+                    <input class="repost-btn" type="image" src="{% static 'graphics/icons/icons8-retweet-48.png' %}">
                 </div>
             </div>
         </div>
