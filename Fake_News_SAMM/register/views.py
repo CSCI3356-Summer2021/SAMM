@@ -10,7 +10,7 @@ from django.contrib import messages
 
 def register(request):
     if request.method == "POST": #links to html file, which has method set to POST
-        form = RegisterForm(request.POST) #Register form is the form I outline in forms.py
+        form = RegisterForm(request.POST, request.FILES) #Register form is the form I outline in forms.py
         if form.is_valid(): #if form is valid, it saves it to user database
             form.save()
             username = form.cleaned_data.get('username') #Defines username as the username the user input
@@ -24,4 +24,5 @@ def register(request):
     return render(request, "register.html", {"form":form})
 
 def login(request):
+    
     return render(request, "login.html")
