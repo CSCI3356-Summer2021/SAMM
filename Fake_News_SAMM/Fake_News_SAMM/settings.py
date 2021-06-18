@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'landing',                      #adding apps that I have installed
     'register',                     #
     'home',                         #
+    'posts',
 ]   
 
 MIDDLEWARE = [

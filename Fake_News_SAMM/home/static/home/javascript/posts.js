@@ -7,7 +7,7 @@ function displayPost(post){
         <div class="post-container">
             <div class="poster1">
                 <a class="profilelink" href="#">
-                    <img class="profilePic" src="graphics/profile_pics/IMG-9004.jpg" alt="">
+                    <img class="profilePic" src="home/graphics/profile_pics/IMG-9004.jpg" alt="none">
                     <span class="profiletxt-board">@${post.author}</span>
                 </a>
             </div>
@@ -16,6 +16,7 @@ function displayPost(post){
             <div class="content">
                 <p class="content-txt">
                     ${post.content}
+                    <img src=${post.image} alt="none">
                 </p>
             </div>
 
@@ -40,11 +41,15 @@ function displayPost(post){
     container.insertAdjacentHTML('afterbegin', html);
 }
 
-function Post(author, date, time, content, like_count, comment_count, repost_count, comments){
+function Post(author, date, time, content, image, like_count, comment_count, repost_count, comments){
     this.author = author;
     this.date = date;
     this.time = time;
     this.content = content;
+
+    var image_path = document.getElementById("input-img");
+    this.image = image_path;
+
     this.like_count = like_count.toString();
     this.comment_count = comment_count.toString();
     this.repost_count = repost_count.toString();
@@ -80,6 +85,6 @@ function currentTime(){
         return current_time;
     }
 }
-var post1 = new Post("kennywang", currentDate(), currentTime(), "This is my tweet!", 0, 0, 0);
+var post1 = new Post("kennywang", currentDate(), currentTime(), "This is my tweet!", null, 0, 0, 0);
 
 var threads = [post1];
