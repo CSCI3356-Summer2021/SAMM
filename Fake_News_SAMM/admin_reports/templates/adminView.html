@@ -1,10 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eagle Tweets - Frontpage</title>
-    <link rel="stylesheet" href="css/home_template/template.css">
+    <link rel="stylesheet" href="{% static 'admin_reports/css/template.css' %}">
 </head>
 <body >
     <div class = "left-col">
@@ -12,13 +14,13 @@
 
             <nav>
                 <ul class="navlinks">
-                    <li><a href="#"> <img class="logo" src="graphics/icons/Boston_College_Eagles_logo.jpg" alt="Home"> </a></li>
+                    <li><a href="#"> <img class="logo" src="{% static 'admin_reports/graphics/icons/Boston_College_Eagles_logo.jpg' %}" alt="Home"> </a></li>
 
                     <ul class="home">
                         <li>
                             <a href="#" class="current">
                                 <div class="navbutton">
-                                    <img class="icon" src="graphics/icons/icons8-home-96.png" alt="Home">
+                                    <img class="icon" src="{% static 'admin_reports/graphics/icons/icons8-home-96.png' %}" alt="Home">
                                     <span class="navtext"> Home </span>
                                 </div>
                             </a>
@@ -28,7 +30,7 @@
                         <li>
                             <a href="#" class="noncurrent">
                                 <div class="navbutton">
-                                    <img class="icon" src="graphics/icons/icons8-compass-96.png" alt="Explore">
+                                    <img class="icon" src="{% static 'admin_reports/graphics/icons/icons8-compass-96.png' %}" alt="Explore">
                                     <span class="navtext"> Explore </span>
                                 </div>
                             </a>
@@ -38,7 +40,7 @@
                         <li>
                             <a href="#" class="noncurrent">
                                 <div class="navbutton">
-                                    <img class="icon" src="graphics/icons/icons8-messages-100.png" alt="Messages">
+                                    <img class="icon" src="{% static 'admin_reports/graphics/icons/icons8-messages-100.png' %}" alt="Messages">
                                     <span class="navtext"> Messages </span>
                                 </div>
                             </a>
@@ -48,7 +50,7 @@
                         <li>
                             <a href="#" class="noncurrent">
                                 <div class="navbutton">
-                                    <img class="icon" src="graphics/icons/icons8-notification-96.png" alt="Notifications">
+                                    <img class="icon" src="{% static 'admin_reports/graphics/icons/icons8-notification-96.png' %}" alt="Notifications">
                                     <span class="navtext"> Notifications </span>
                                 </div>
                             </a>
@@ -58,7 +60,7 @@
                         <li>
                             <a href="#" class="noncurrent">
                                 <div class="navbutton">
-                                    <img class="icon" src="graphics/icons/icons8-male-user-96.png" alt="Profile">
+                                    <img class="icon" src="{% static 'admin_reports/graphics/icons/icons8-male-user-96.png' %}" alt="Profile">
                                     <span class="navtext"> Profile </span>
                                 </div>
                             </a>
@@ -74,7 +76,7 @@
 
                 <a href="#" class="profilelink">
                     <div class="profilebox">
-                        <img class="profilePic" src="graphics/profile_pics/adminProfileIcon.png" alt="Profile">
+                        <img class="profilePic" src="{% static 'admin_reports/graphics/profile_pics/adminProfileIcon.png' %}" alt="Profile">
                         <span class="profiletxt">@Admin</span>
                     </div>
                 </a>
