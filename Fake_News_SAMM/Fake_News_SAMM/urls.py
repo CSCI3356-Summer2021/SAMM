@@ -24,6 +24,10 @@ urlpatterns = [
     path('register/', include('register.urls')), 
     path('home/', include('home.urls')),
     path('', include('django.contrib.auth.urls')), #built in login functions
+    path('profile_page/', include('profile_page.urls')),
+    path('admin_reports/', include('admin_reports.urls')),
+    path('report/', include('report.urls')),
+    path('messaging/', include('messaging.urls')),
     path('admin/', admin.site.urls),
 ]
 

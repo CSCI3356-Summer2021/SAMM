@@ -39,8 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'landing',                      #adding apps that I have installed
-    'register',                     #
-    'home',                         #
+    'register',
+    'home',
+    'admin_reports',
+    'profile_page',
+    'report',
+    'messaging',
 ]   
 
 MIDDLEWARE = [
