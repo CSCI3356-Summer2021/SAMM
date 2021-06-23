@@ -87,7 +87,7 @@
 
                 <a href="#" class="profilelink">
                     <div class="profilebox">
-                        <img class="profilePic" src="{% static 'home/graphics/profile_pics/IMG-9004.jpg' %}" alt="Profile">
+                        <img class="profilePic" src="{{request.user.user.profile_pic.url}}" alt="Profile">
                         <span class="profiletxt">@kennywang</span>
                     </div>
                 </a>
@@ -98,7 +98,7 @@
 
     <div class="tweetbox">
         <div class="poster">
-            <img class="profilePic" src="{% static 'home/graphics/profile_pics/IMG-9004.jpg' %}" alt="Profile">
+            <img class="profilePic" src="{{request.user.user.profile_pic.url}}" alt="Profile">
             
             <input class="post-txt" id="input-txt" type="text" placeholder="What's up?"></input>
 
@@ -124,7 +124,7 @@
                         <div class="post-container">
                             <div class="poster1">
                                 <a class="profilelink" href="#">
-                                    <img class="profilePic" src="{% static 'home/graphics/profile_pics/IMG-9004.jpg' %}" alt="">
+                                    <img class="profilePic" src="{{request.user.user.profile_pic.url}}" alt="">
                                     <span class="profiletxt-board">@${post.author}</span>
                                 </a>
                         </div>
