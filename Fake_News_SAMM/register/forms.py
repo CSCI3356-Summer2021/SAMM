@@ -46,4 +46,13 @@ class RegisterForm(UserCreationForm): #all same properties as user creation form
             'username' : '',
             'email' : '',
         }
-        
+
+        from django.shortcuts import render, redirect
+from .forms import RegisterForm
+import time
+from django.contrib import messages
+from .models import User
+
+# Create your views here.
+
+
