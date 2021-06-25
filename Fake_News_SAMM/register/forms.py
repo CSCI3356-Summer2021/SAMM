@@ -8,7 +8,10 @@ from django.forms import EmailInput, TextInput, PasswordInput
 
 #User creation form automatically includes username, password
 class RegisterForm(UserCreationForm): #all same properties as user creation form plus those specified below
-    
+    fullname = forms.CharField(max_length=200, label ="",widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Full Name'}))
+    phone = forms.CharField(max_length=200, label ="",widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Phone Number'}))
+    address = forms.CharField(max_length=200, label ="",widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Address'}))
+    bio = forms.CharField(max_length=500, label="", widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Bio (Not Required)'}), required=False)
     password1 = forms.CharField(
         label="",
         widget=forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'Password'}),
@@ -17,7 +20,7 @@ class RegisterForm(UserCreationForm): #all same properties as user creation form
         label="",
         widget=forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'Confirm Password'}),
     )
-    image = forms.ImageField()
+    profile_pic = forms.ImageField()
 
     def clean_email(self): #This function is used to limit email domain to that of bc.edu
         data = self.cleaned_data['email'] #data is that of the input for email
@@ -28,7 +31,7 @@ class RegisterForm(UserCreationForm): #all same properties as user creation form
     class Meta: #Since we made some changes, this sets the order of the fields in the form
         model = User
         
-        fields = ["username", "email", "password1", "password2", "image"]
+        fields = ["username", "fullname", "email", "phone", "address", "password1", "password2", "bio", "profile_pic"]
         widgets = {
             'username' : TextInput(attrs={
                 'class' : 'form-control',
@@ -43,4 +46,13 @@ class RegisterForm(UserCreationForm): #all same properties as user creation form
             'username' : '',
             'email' : '',
         }
-        
+
+        from django.shortcuts import render, redirect
+from .forms import RegisterForm
+import time
+from django.contrib import messages
+from .models import User
+
+# Create your views here.
+
+

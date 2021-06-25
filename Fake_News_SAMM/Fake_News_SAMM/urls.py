@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 
@@ -24,6 +25,12 @@ urlpatterns = [
     path('register/', include('register.urls')), 
     path('home/', include('home.urls')),
     path('', include('django.contrib.auth.urls')), #built in login functions
+    path('profile_page/', include('profile_page.urls')),
+    path('admin_reports/', include('admin_reports.urls')),
+    path('report/', include('report.urls')),
+    path('messaging/', include('messaging.urls')),
     path('admin/', admin.site.urls),
 ]
 
+urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

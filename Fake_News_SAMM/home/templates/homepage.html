@@ -49,7 +49,7 @@
                     </ul>
                     <ul class="messages">
                         <li>
-                            <a href="#" class="noncurrent"> 
+                            <a href="../messaging" class="noncurrent"> 
                                 <div class="navbutton">
                                     <img class="icon" src="{% static 'home/graphics/icons/icons8-messages-100.png' %}" alt="Messages"> 
                                     <span class="navtext"> Messages </span>
@@ -69,7 +69,7 @@
                     </ul>
                     <ul class="profile">
                         <li>
-                            <a href="#" class="noncurrent"> 
+                            <a href="../profile_page" class="noncurrent"> 
                                 <div class="navbutton">
                                     <img class="icon" src="{% static 'home/graphics/icons/icons8-male-user-96.png' %}" alt="Profile"> 
                                     <span class="navtext"> Profile </span>
@@ -85,9 +85,9 @@
                     </div>
                 </a>
 
-                <a href="#" class="profilelink">
+                <a href="/profile_page" class="profilelink">
                     <div class="profilebox">
-                        <img class="profilePic" src="{% static 'home/graphics/profile_pics/IMG-9004.jpg' %}" alt="Profile">
+                        <img class="profilePic" src="{{request.user.user.profile_pic.url}}" alt="Profile">
                         <span class="profiletxt">@kennywang</span>
                     </div>
                 </a>
@@ -98,7 +98,7 @@
 
     <div class="tweetbox">
         <div class="poster">
-            <img class="profilePic" src="{% static 'home/graphics/profile_pics/IMG-9004.jpg' %}" alt="Profile">
+            <img class="profilePic" src="{{request.user.user.profile_pic.url}}" alt="Profile">
             
             <input class="post-txt" id="input-txt" type="text" placeholder="What's up?"></input>
 
@@ -124,7 +124,7 @@
                         <div class="post-container">
                             <div class="poster1">
                                 <a class="profilelink" href="#">
-                                    <img class="profilePic" src="{% static 'home/graphics/profile_pics/IMG-9004.jpg' %}" alt="">
+                                    <img class="profilePic" src="{{request.user.user.profile_pic.url}}" alt="">
                                     <span class="profiletxt-board">@${post.author}</span>
                                 </a>
                         </div>
@@ -153,6 +153,12 @@
                             <input class="comment-btn" type="image" src="{% static 'home/graphics/icons/icons8-comments-52.png' %}">
                             <span class="repost-count"> ${post.repost_count} </span>
                             <input class="repost-btn" type="image" src="{% static 'home/graphics/icons/icons8-retweet-48.png' %}">
+                            
+                        </div>
+                        <div>
+                        <a href="../report/ReportUser" style="color: inherit">Report User</a>
+                        <a>||</a>
+                        <a href="../report/ReportMessage" style="color: inherit">Report Message</a>
                         </div>
                     </div>
                 </div>

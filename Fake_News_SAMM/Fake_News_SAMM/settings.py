@@ -39,8 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'landing',                      #adding apps that I have installed
-    'register',                     #
-    'home',                         #
+    'register',
+    'home',
+    'admin_reports',
+    'profile_page',
+    'report',
+    'messaging',
 ]   
 
 MIDDLEWARE = [
@@ -130,10 +134,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "/home" #Signals login function to redirect to homepage when login is successful 
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/images/'
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 LOGIN_URL = 'login'
