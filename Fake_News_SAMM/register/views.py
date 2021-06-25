@@ -15,8 +15,11 @@ def register(request):
             #x = form.save(commit=True)
             m = User.objects.create()
             m.username = form.cleaned_data['username']
+            m.fullname = form.cleaned_data['fullname']
             m.email = form.cleaned_data['email']
-            m.profile_pic = form.cleaned_data['image']
+            m.phone = form.cleaned_data['phone']
+            m.address = form.cleaned_data['address']
+            m.profile_pic = form.cleaned_data['profile_pic']
             m.save()
             form.save()
             username = form.cleaned_data.get('username') #Defines username as the username the user input
@@ -32,3 +35,7 @@ def register(request):
 def login(request):
     
     return render(request, "login.html")
+
+def editprofile(request):
+    
+    return render(request, "editrofile.html")
