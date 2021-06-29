@@ -25,8 +25,8 @@ def register(request):
             username = form.cleaned_data.get('username') #Defines username as the username the user input
             messages.info(request, "Welcome " + username + "!") #This displays username as a message
             
-        #time.sleep(5) #Delay so message is shown/seen
-        #return redirect("/home") #redirect after 5 seconds to homepage
+            #time.sleep(5) #Delay so message is shown/seen
+            return redirect("/home") #redirect after 5 seconds to homepage
     else:
         form = RegisterForm() #blank form
 
@@ -35,6 +35,7 @@ def register(request):
 def login(request):
     
     return render(request, "login.html")
+
 
 def editprofile(request):
     
