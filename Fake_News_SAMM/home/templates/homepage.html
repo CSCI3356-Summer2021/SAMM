@@ -14,7 +14,7 @@
 <script text="/javascript">
     function postContent() {
         var str = document.getElementById("input-txt").value;
-        var newPost = new Post("kennywang", currentDate(), currentTime(), str, document.getElementById('image'), 0, 0, 0);
+        var newPost = new Post("{{request.user.user.username}}" , currentDate(), currentTime(), str, document.getElementById('image'), 0, 0, 0);
         displayPost(newPost);
     }
 </script>
@@ -88,7 +88,7 @@
                 <a href="/profile_page" class="profilelink">
                     <div class="profilebox">
                         <img class="profilePic" src="{{request.user.user.profile_pic.url}}" alt="Profile">
-                        <span class="profiletxt">@kennywang</span>
+                        <span class="profiletxt">@{{request.user.user.username}}</span>
                     </div>
                 </a>
 
@@ -210,7 +210,7 @@
                 return current_time;
             }
         }
-        var post1 = new Post("kennywang", currentDate(), currentTime(), "This is my tweet!", null, 0, 0, 0);
+        var post1 = new Post("{{request.user.user.username}}", currentDate(), currentTime(), "This is my tweet!", null, 0, 0, 0);
 
         var threads = [post1];
 
