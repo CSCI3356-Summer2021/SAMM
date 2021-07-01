@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
+from .forms import RegisterForm, EditForm
 import time
 from django.contrib import messages
 from .models import User
+
 
 # Create your views here.
 
@@ -36,6 +37,26 @@ def login(request):
     return render(request, "login.html")
 
 
-def editprofile(request):
+def editprofile(request, *args, **kwargs):
+    user_id = kwargs.get("user_id")
     
-    return render(request, "editrofile.html")
+    try:
+        account = User.objects.get(pk=user_id)
+    except User.DoesNotExist:
+        acount = None
+    if request.method == "POST": 
+        
+        form = EditForm(request.POST, request.FILES, instance=request.user)
+        if form.is_valid(): #if form is valid, it saves it to user database
+            
+            #m = User.objects.get()
+            #m.fullname = form.cleaned_data['fullname']
+        # m.phone = form.cleaned_data['phone']
+            #m.address = form.cleaned_data['address']
+            #m.save(request.user)
+            form.save()
+    else:
+        form = EditForm() #blank form
+    return render(request, "editprofile.html", {"form":form})
+    
+        

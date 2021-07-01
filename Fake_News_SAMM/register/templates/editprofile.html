@@ -1,2 +1,13 @@
-{% extends 'profile_page' %}
-<div> Hello World</div>
+
+<div> 
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ profile_form.as_p }}
+        
+           <div class="d-flex justify-content-center mt-3 login_container">
+             <button class="btn login_btn" type="submit" >Register</button>
+           </div>
+    </form>
+
+</div>

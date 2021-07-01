@@ -15,6 +15,8 @@
         <!--
             <link rel="stylesheet" href="{% static 'report/bootstrap/css/bootstrap.min.css' %}">
         -->
+       
+        
         
 		<link rel="stylesheet" href="{% static 'report/css/form-elements.css' %}">
         <link rel="stylesheet" href="{% static 'report/css/style.css' %}">
@@ -47,7 +49,7 @@
         			
         			<div class="modal-header">
         				<button type="button" class="close" data-dismiss="modal">
-        					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        					<span aria-hidden="true">&times;</span><a class="sr-only" href="/home" style="color:inherit">Close</a>
         				</button>
         				<h3 class="modal-title" id="modal-report-label">Report User</h3>
         				<p>Fill in the form below to report a user:</p>
@@ -55,27 +57,25 @@
         			
         			<div class="modal-body">
         				
-	                    <form role="form" action="" method="post" class="report-from">
-	                    	
+	                    <form role="form" action="" method="POST" class="report-from">
+	                    	{% csrf_token %}
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Reporting User Name</th>
-                                        <th>Reported User Name</th>
+                                        <th>User Making Report:</th>
+                                        <th>Reported User:</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><img class="rounded-circle me-2" width="30" height="30" src="{% static 'report/avatars/avatar1.jpeg'%}" />Airi Satou</td>
-                                        <td><img class="rounded-circle me-2" width="30" height="30" src="{% static 'report/avatars/avatar2.jpeg'%}" />Isabel Ryan</td>
+                                        <td><img class="rounded-circle me-2" width="30" height="30" src="{{request.user.user.profile_pic.url}}" />{{request.user.user.fullname}}</td>
+                                        <td><img class="rounded-circle me-2" width="30" height="30" src="" />${post.author}</td>
                                     </tr>
                                 </tbody>
                             </table>
                             <p> Please provide infomration on why you are reporting this user:</p>
 	                        <div class="form-group">
-	                        	<label class="sr-only" for="form-report-info">Reason for report?</label>
-	                        	<textarea name="form-report-info" placeholder="Reason for report..." 
-	                        				class="form-report-info form-control" id="form-report-info"></textarea>
+                                {{ form.as_p }}
 	                        </div>
 	                        <button type="submit" class="btn">Report</button>
 	                    </form>
