@@ -47,12 +47,23 @@ class RegisterForm(UserCreationForm): #all same properties as user creation form
             'email' : '',
         }
 
-        from django.shortcuts import render, redirect
-from .forms import RegisterForm
-import time
-from django.contrib import messages
-from .models import User
-
-# Create your views here.
-
+class EditForm(forms.ModelForm):
+    fullname = forms.CharField(max_length=200)
+    phone = forms.CharField(max_length=200)
+    address = forms.CharField(max_length=200)
+    bio = forms.CharField(max_length=500)
+    
+    class Meta:
+        model = User
+        fields = ["fullname", "phone", "address", "bio"]
+    
+    def save(self, commit=True):
+        account = super(EditForm, self).save(commit=False)
+        account.fullname = self.cleaned_data['fullname']
+        account.phone = self.cleaned_data['phone']
+        account.address = self.cleaned_data['address']
+        account.bio = self.cleaned_data['bio']
+        if commit:
+            account.save()
+        return account
 
