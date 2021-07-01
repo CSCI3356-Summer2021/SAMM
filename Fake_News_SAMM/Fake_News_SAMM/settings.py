@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'profile_page',
     'report',
     'messaging',
+    'post'
 ]   
 
 MIDDLEWARE = [
