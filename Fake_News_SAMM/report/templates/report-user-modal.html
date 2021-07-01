@@ -57,8 +57,8 @@
         			
         			<div class="modal-body">
         				
-	                    <form role="form" action="" method="post" class="report-from">
-	                    	
+	                    <form role="form" action="" method="POST" class="report-from">
+	                    	{% csrf_token %}
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -69,15 +69,13 @@
                                 <tbody>
                                     <tr>
                                         <td><img class="rounded-circle me-2" width="30" height="30" src="{{request.user.user.profile_pic.url}}" />{{request.user.user.fullname}}</td>
-                                        <td><img class="rounded-circle me-2" width="30" height="30" src="{% static 'report/avatars/avatar2.jpeg'%}" />Isabel Ryan</td>
+                                        <td><img class="rounded-circle me-2" width="30" height="30" src="" />${post.author}</td>
                                     </tr>
                                 </tbody>
                             </table>
                             <p> Please provide infomration on why you are reporting this user:</p>
 	                        <div class="form-group">
-	                        	<label class="sr-only" for="form-report-info">Reason for report?</label>
-	                        	<textarea name="form-report-info" placeholder="Reason for report..." 
-	                        				class="form-report-info form-control" id="form-report-info"></textarea>
+                                {{ form.as_p }}
 	                        </div>
 	                        <button type="submit" class="btn">Report</button>
 	                    </form>

@@ -4,7 +4,7 @@ from django.db import models
 
 class UserReport(models.Model):
     REPORTED_PERSON=("{{request.post.author}}")
-    username = models.CharField(max_length=7, default=REPORTED_PERSON, editable=False)
+    username = models.CharField(max_length=200, default=REPORTED_PERSON, editable=True, null=True)
     reason = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
@@ -22,7 +22,9 @@ class MessageReport(models.Model):
         ("CTTO", "Contains Threats Towards Others"),
         ("OL", "Offensive Language"),
         )
-    username = models.CharField(max_length=7, default=REPORTED_PERSON, editable=False)
+    POST_CONTENT=("{{request.post.content}}")
+    content = models.CharField(max_length=500, default=POST_CONTENT, null=True)
+    username = models.CharField(max_length=200, default=REPORTED_PERSON, editable=True, null=True)
     reason = models.CharField(max_length=4, choices=REASONS, null=True)
     additional = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)

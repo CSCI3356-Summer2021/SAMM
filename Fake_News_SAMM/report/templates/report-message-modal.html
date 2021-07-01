@@ -43,7 +43,6 @@
         <div class="modal fade" id="modal-report" tabindex="-1" role="dialog" aria-labelledby="modal-report-label" aria-hidden="true">
         	<div class="modal-dialog">
         		<div class="modal-content">
-        			
         			<div class="modal-header">
         				<button type="button" class="close" data-dismiss="modal">
         					<span aria-hidden="true">&times;</span><a class="sr-only" href="/home" style="color: inherit">Close</a>
@@ -54,7 +53,7 @@
         			
         			<div class="modal-body">
         				
-	                    <form role="form" action="" method="post" class="report-from">
+	                    <form role="form" action="" method="POST" class="report-from">
 	                    	
                             <table class="table">
                                 <thead>
@@ -72,25 +71,13 @@
                             </table>
                             <h1><b>Reported Message</b></h1>
                             <p>post.content</p>
-                            <div class="form-group item-required" id="selectreason">
-                                <label for="reason">Reason for report:</label>
-                                <select id="selectreason" name="selectreason" class="form-control input-value">
-                                    <option value="">Other</option>
-                                    <option value="">Contains Hate Speech</option>
-                                    <option value="">Contains Nudity</option>
-                                    <option value="">Contains Fake News</option>
-                                    <option value="">Contains Threats Towards Others</option>
-                                    <option value="">Offending Language</option>
-                                </select>
-                                </div>
-                            <div>
+                            
 
                             </div>
                             <p3> Please provide any additional information you have:</p3>
 	                        <div class="form-group">
-	                        	<label class="sr-only" for="form-report-info">Additional info..</label>
-	                        	<textarea name="form-report-info" placeholder="Additional Info...." 
-	                        				class="form-report-info form-control" id="form-report-info"></textarea>
+                                {% csrf_token %}
+                                {{ form.as_p }}
 	                        </div>
 	                        <button type="submit" class="btn">Report</button>
 	                    </form>
