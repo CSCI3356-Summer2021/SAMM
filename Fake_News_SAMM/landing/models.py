@@ -3,10 +3,8 @@ from register.models import User
 
 # Create your models here.
 
-# Create your models here.
 class Twitter(models.Model):
     id = models.AutoField(primary_key=True)
-    #user = models.ForeignKey(User, related_name='User_id',verbose_name="User_RELA", on_delete=models.CASCADE)
     uid = models.IntegerField(null=True)
     username = models.CharField(max_length=64, verbose_name="username")
     avatar = models.CharField(default='',max_length=64, verbose_name="profile_picture")
@@ -29,7 +27,6 @@ class Twitter(models.Model):
 
 class Comment(models.Model):
     id = models.AutoField(primary_key=True)
-    #user = models.ForeignKey(User, related_name='User_id',verbose_name="User_RELA", on_delete=models.CASCADE)
     uid = models.IntegerField(null=True)
     username = models.CharField(max_length=64, verbose_name="username")
     avatar = models.CharField(default='',max_length=64, verbose_name="profile_picture")
