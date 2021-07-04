@@ -27,6 +27,7 @@
                             </a>
                         </li>
                     </ul>
+                    <!--
                     <ul class="explore">
                         <li>
                             <a href="#" class="noncurrent"> 
@@ -37,6 +38,8 @@
                             </a>
                         </li>
                     </ul>
+                    -->
+
                     <ul class="messages">
                         <li>
                             <a href="../messaging" class="noncurrent"> 
@@ -47,6 +50,7 @@
                             </a>
                         </li>
                     </ul>
+                    <!--
                     <ul class="notifications">
                         <li>
                             <a href="#" class="noncurrent">
@@ -57,6 +61,7 @@
                             </a>
                         </li>
                     </ul>
+                    -->
                     <ul class="profile">
                         <li>
                             <a href="../profile_page" class="noncurrent"> 
@@ -76,8 +81,8 @@
 
                 <a href="/profile_page" class="profilelink">
                     <div class="profilebox">
-                        <img class="profilePic" src="/static{{profile_pic.url}}" alt="Profile">
-                        <span class="profiletxt">@{{username}}</span>
+                        <img class="profilePic" src="/static{{request.user.user.profile_pic.url}}" alt="Profile">
+                        <span class="profiletxt">@{{request.user.user.username}}</span>
                     </div>
                 </a>
 
@@ -88,7 +93,7 @@
         <div class="poster">
             <form action="/savecontent/" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <img class="profilePic" src="/static{{profile_pic.url}}" alt="Profile">
+                <img class="profilePic" src="/static{{request.user.user.profile_pic.url}}" alt="Profile">
                 <input class="post-txt" id="input-txt" type="text" placeholder="What's up?" name="content"></input>
                 <div class="tweetbox-bottom">
                     <input class="tweet-btn" onclick="postContent()" type="submit" value="Post">

@@ -23,6 +23,11 @@ def register(request):
             m.profile_pic = form.cleaned_data['profile_pic']
             m.save()
             form.save()
+            # fix
+            user = User.objects.get(id=m.id)
+            user.user_id = m.id
+            user.save()
+
             username = form.cleaned_data.get('username') #Defines username as the username the user input
             messages.info(request, "Welcome " + username + "!") #This displays username as a message
             

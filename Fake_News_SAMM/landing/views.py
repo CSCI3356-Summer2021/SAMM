@@ -10,6 +10,8 @@ from django.utils import timezone
 def index(request):
     return render(request, 'index.html')
 
+
+@login_required
 def savecontent(request):
     id = request.user.id
     print(id)
@@ -22,6 +24,7 @@ def savecontent(request):
 
     return HttpResponse("<script>alert('post success');location.href='/home/'</script>")
 
+@login_required
 def ajaxaddfav(request):
     id = request.POST.get('id')
     tw = Twitter.objects.get(id=id)
@@ -29,6 +32,7 @@ def ajaxaddfav(request):
     tw.save();
     return JsonResponse({'count':tw.fav})
 
+@login_required
 def ajaxrepost(request):
     uid = request.user.id
     user = User.objects.get(id=uid)
@@ -41,6 +45,7 @@ def ajaxrepost(request):
 
     return JsonResponse({'count':tw.zhuan})
 
+@login_required
 def ajaxcomment(request):
     uid = request.user.id
     user = User.objec

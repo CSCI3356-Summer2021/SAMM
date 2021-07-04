@@ -9,6 +9,10 @@ def home(request):
 
     username = request.user.username
     id = request.user.id
+
+    print("request.user.user.profile_pic")
+    print(request.user.user.profile_pic)
+
     print(id)
     print(username)
     user = User.objects.get(id=id)
