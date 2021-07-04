@@ -20,17 +20,17 @@ def savecontent(request):
     pic = request.FILES.get('imagefile', '')
     print(pic)
     time =  timezone.now()
-    Twitter(uid=id,username=user.username,avatar=user.profile_pic,fav=0,comment=0,zhuan=0,content=content,pic=pic,add_time=time).save()
+    Twitter(uid=id,username=user.username,avatar=user.profile_pic,likes=0,comments=0,reposts=0,content=content,pic=pic,add_time=time).save()
 
     return HttpResponse("<script>alert('post success');location.href='/home/'</script>")
 
 @login_required
-def ajaxaddfav(request):
+def ajaxlike(request):
     id = request.POST.get('id')
     tw = Twitter.objects.get(id=id)
-    tw.fav = tw.fav+1;
+    tw.likes = tw.likes+1;
     tw.save();
-    return JsonResponse({'count':tw.fav})
+    return JsonResponse({'count':tw.likes})
 
 @login_required
 def ajaxrepost(request):
@@ -38,12 +38,12 @@ def ajaxrepost(request):
     user = User.objects.get(id=uid)
     id = request.POST.get('id')
     tw = Twitter.objects.get(id=id)
-    tw.zhuan = tw.zhuan+1;
+    tw.reposts = tw.reposts+1;
     tw.save();
     time =  timezone.now()
-    Twitter(uid=uid,username=user.username,avatar=user.profile_pic,fav=0,comment=0,zhuan=0,content=user.username+" re-sended this message: "+tw.content,pic=tw.pic,add_time=time).save()
+    Twitter(uid=uid,username=user.username,avatar=user.profile_pic,likes=0,comments=0,reposts=0,content=user.username+" re-sended this message: "+tw.content,pic=tw.pic,add_time=time).save()
 
-    return JsonResponse({'count':tw.zhuan})
+    return JsonResponse({'count':tw.reposts})
 
 @login_required
 def ajaxcomment(request):
@@ -52,7 +52,7 @@ def ajaxcomment(request):
     id = request.POST.get('id')
     content = request.POST.get('content','')
     tw = Twitter.objects.get(id=id)
-    tw.comment = tw.comment+1;
+    tw.comments = tw.comments+1;
     tw.save(); 
 
     time =  timezone.now()

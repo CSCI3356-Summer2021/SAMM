@@ -46,9 +46,9 @@ def home(request):
             'avatar':item.avatar,
             'date':item.add_time.strftime('%Y-%m-%d %H:%M:%S') ,
             'content':item.content,
-            'like_count':item.fav,
-            'comment_count':item.comment,
-            'repost_count':item.zhuan,
+            'like_count':item.likes,
+            'comment_count':item.comments,
+            'repost_count':item.reposts,
             'get_children':get_children
         })
     list = json.dumps(data)

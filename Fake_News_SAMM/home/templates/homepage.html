@@ -234,7 +234,7 @@
 			$(".like-btn").click(function(){
 				var id = $(this).data('id');
 				$.ajax({
-					url:"/ajaxaddfav/",type:"POST",data:{id:id,csrfmiddlewaretoken:"{{ csrf_token }}",},
+					url:"/ajaxlike/",type:"POST",data:{id:id,csrfmiddlewaretoken:"{{ csrf_token }}",},
 					success:function (data) {
 					  $("#like-count"+id).html(data.count);
 					}

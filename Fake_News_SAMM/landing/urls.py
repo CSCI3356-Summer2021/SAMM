@@ -9,7 +9,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.index, name='landing/index'),
     path('savecontent/', views.savecontent, name='landing/savecontent'),
-    path('ajaxaddfav/', views.ajaxaddfav, name='landing/ajaxaddfav'),
+    path('ajaxlike/', views.ajaxlike, name='landing/ajaxlike'),
     path('ajaxrepost/', views.ajaxrepost, name='landing/ajaxrepost'),
     path('ajaxcomment/', views.ajaxcomment, name='landing/ajaxcomment'),
     
