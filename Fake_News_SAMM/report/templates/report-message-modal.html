@@ -65,12 +65,12 @@
                                 <tbody>
                                     <tr>
                                         <td><img class="rounded-circle me-2" width="30" height="30" src="{{request.user.user.profile_pic.url}}" />{{request.user.user.fullname}}</td>
-                                        <td><img class="rounded-circle me-2" width="30" height="30" src="" />${post.author}</td>
+                                        <td><img class="rounded-circle me-2" width="30" height="30" src=""/><a id="output"></a></td>
                                     </tr>
                                 </tbody>
                             </table>
                             <h1><b>Reported Message</b></h1>
-                            <p>post.content</p>
+                            <p id = "output2"></p>
                             
 
                             </div>
@@ -87,6 +87,17 @@
         		</div>
         	</div>
         </div>
+
+        <script>
+            window.onload = function getinfo(){
+                var author = sessionStorage.getItem("first"),
+                    reason = sessionStorage.getItem("second");
+                document.getElementById('output').innerHTML = author;
+                document.getElementById('output2').innerHTML = reason;
+
+};
+            
+        </script>
 
 
         <!-- Javascript -->

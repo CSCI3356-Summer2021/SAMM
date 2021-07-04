@@ -11,10 +11,12 @@
     <div class="container">
         <div class="main">
             <div class= "topbar">
-                <a href="">Sign Out</a>
-                <a href="">Notifications</a>
-                <a href="">Messages</a>
-                <a href="">Explore</a>
+                {% if request.user.is_staff %}
+                <a href="../admin_reports">Admin</a>
+                {% endif %}
+                
+                <a href="../messaging">Messages</a>
+                
                 <a href="../home">Home</a>
             </div>
             <div class="row">
@@ -24,8 +26,8 @@
                             <img src="{{request.user.user.profile_pic.url}}" class= "rounded-circle" width="150" alt="Profile picture here">
                             <div class="mt-1">
                                 <h3> {{request.user.user.fullname}}</h3>
-                                <a href="../register/editprofile">Edit Profile</a>
-                                <a href="">Signout</a>
+                                <!--<a href="../register/editprofile">Edit Profile</a>-->
+                                <a href="../login">Sign Out</a>
                             </div>
                         </div>
                     </div>
