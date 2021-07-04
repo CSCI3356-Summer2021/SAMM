@@ -27,6 +27,28 @@
                         </li>
                         
                     </ul>
+                    <ul class="home">
+                        <li>
+                            <a href="../messaging" class="current">
+                                <div class="navbutton">
+                                    <img class="icon" src="{% static 'admin_reports/graphics/icons/icons8-messages-100.png' %}" alt="Home">
+                                    <span class="navtext"> Messages </span>
+                                </div>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                    <ul class="home">
+                        <li>
+                            <a href="../profile_page" class="current">
+                                <div class="navbutton">
+                                    <img class="icon" src="{% static 'admin_reports/graphics/icons/icons8-male-user-96.png' %}" alt="Home">
+                                    <span class="navtext"> Profile </span>
+                                </div>
+                            </a>
+                        </li>
+                        
+                    </ul>
                    
 
                 <a href="#" class="profilelink">
@@ -119,32 +141,54 @@
              #buttons LI a {
                text-decoration: none;
              }
-         </style>
-        </head>
-
-
-        <body>
-          <UL>
-            <div class="scrollMainView">
-                  <div class="titletext"><br> REPORTS </div>
-                  <UL>
-                    <LI class="reports">
-                      <div class="scrollText">
-                          <a class="responsiveButton" href="#">Ban Post</a>
-                          <a class="responsiveButton" href="#"><P color = white>Permissable</P></a>
-                          <p>
-                              USER: exampleUser1
-                          <br>
-                              CREDIBILITY: 30%
-                          <br>
-                              POST: "The Earth is Flat!!!"
-                          </p>
-                      </div>
-                  </UL>
-                  
-              <div>
-          <UL>
-    </div>
+            </style>
+            </head>
+            <body>
+                <UL>
+                    <div class="scrollMainView">
+                        <div class="titletext"><br> USER REPORTS </div>
+                            <UL>
+                            {% for n in user_objects %}
+                            <LI class="reports">
+                                <div class="scrollText">
+                                <a class="responsiveButton" href="#">Ban Post</a>
+                                <a class="responsiveButton" href="#"><P color = white>Permissable</P></a>
+                                <p>
+                                    Reported User: {{ n }}
+                                <br>
+                                    Reason for Report: {{ n.reason }}
+                                <br>
+                                    Date Reported: {{ n.date_created }}
+                                </p>
+                                </div>
+                            </UL>
+                            {% endfor %}
+                            <div class="titletext"><br> MESSAGE REPORTS </div>
+                            <UL>
+                            
+                            {% for n in message_objects %}
+                            <LI class="reports">
+                            
+                                <div class="scrollText">
+                                <a class="responsiveButton" href="#">Ban Post</a>
+                                <a class="responsiveButton" href="#"><P color = white>Permissable</P></a>
+                                <p>
+                                    Reported User: {{ n }}
+                                <br>
+                                    Message Reported: {{ n.content }}
+                                <br>
+                                    Reason for Report: {{ n.reason }}
+                                <br>
+                                    Additional Info: {{ n.additional }}
+                                <br>
+                                    Date Reported: {{ n.date_created }}
+                                </p>
+                                </div>
+                            </UL>
+                            {% endfor %}
+                            <div>
+                        <UL>
+                    </div>
 
 
     <div class = "right-col">

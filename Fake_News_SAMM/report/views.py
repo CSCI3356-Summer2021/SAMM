@@ -1,22 +1,29 @@
 from django.shortcuts import render
 from .forms import UserReportForm, MessageReportForm
 from .models import UserReport, MessageReport
+from landing.models import Twitter
 # Create your views here.
 
 
 
 def ReportUser(request):
+    
     if request.method == "POST":
         form = UserReportForm(request.POST, request.FILES)
         if form.is_valid():
+            
             m = UserReport.objects.create()
             m.username = form.cleaned_data['username']
             m.reason = form.cleaned_data['reason']
             m.save()
-            
     else:
         form = UserReportForm()
-    return render(request, 'report-user-modal.html', {"form":form})
+    twitter_objects = Twitter.objects.all()
+    context = {
+        'form' : form,
+        'twitter_objects' : twitter_objects,
+    }    
+    return render(request, 'report-user-modal.html', context)
 
 def ReportMessage(request):
     if request.method == "POST":

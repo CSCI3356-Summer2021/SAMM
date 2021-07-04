@@ -67,6 +67,18 @@
                             </a>
                         </li>
                     </ul>
+                    {% if request.user.is_staff %}
+                    <ul class="profile">
+                        <li>
+                            <a href="../admin_reports" class="noncurrent"> 
+                                <div class="navbutton">
+                                    <img class="icon" src="{% static 'admin_reports/graphics/profile_pics/adminProfileIcon.png' %}" alt="Profile"> 
+                                    <span class="navtext"> Admin </span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    {% endif %}
                 </ul>
                 <a href="#" class="postbttnlink">
                     <div class="postbutton">
@@ -146,14 +158,20 @@
                             `+(comments)+`
                         </div>
                         <div>
-                        <a href="../report/ReportUser" style="color: inherit">Report User</a>
+                        <button id="mybtn" style="color: black">Report User</button>
                         <a>||</a>
-                        <a href="../report/ReportMessage" style="color: inherit">Report Message</a>
+                        <button id="mybtn2" style="color: black">Report Message</button>
                         </div>
                     </div>
                 </div>
             </li>`
             container.insertAdjacentHTML('afterbegin', html);
+            addEvent(post)
+            
+        }
+        function addEvent(post){
+            document.getElementById("mybtn").addEventListener("click", function(){store(post.author)});
+            document.getElementById("mybtn2").addEventListener("click", function(){store2(post.author, post.content)});
         }
 
         function Post(author, date, time, content, image, like_count, comment_count, repost_count, comments){
@@ -191,6 +209,19 @@
                 return current_time;
             }
         }
+        function store(post){
+            let first = post;
+            sessionStorage.setItem("first",first);
+            location.href = "../report/ReportUser";
+        }
+        function store2(author, content){
+            let first = author,
+                second = content;
+            sessionStorage.setItem("first",first);
+            sessionStorage.setItem("second",second);
+            location.href = "../report/ReportMessage";
+        }
+
         var threads = {{list|safe}};
         console.log(threads);
         threads.forEach((element) => {
