@@ -21,6 +21,7 @@ def register(request):
             m.phone = form.cleaned_data['phone']
             m.address = form.cleaned_data['address']
             m.profile_pic = form.cleaned_data['profile_pic']
+            m.bio = form.cleaned_data['bio']
             m.save()
             form.save()
             # fix
@@ -32,7 +33,7 @@ def register(request):
             messages.info(request, "Welcome " + username + "!") #This displays username as a message
             
             #time.sleep(5) #Delay so message is shown/seen
-            return redirect("/home") #redirect after 5 seconds to homepage
+            #return redirect("/home") #redirect after 5 seconds to homepage
     else:
         form = RegisterForm() #blank form
 

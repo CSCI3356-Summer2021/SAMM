@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +55,6 @@
         				<h3 class="modal-title" id="modal-report-label">Report User</h3>
         				<p>Fill in the form below to report a user:</p>
         			</div>
-        			
         			<div class="modal-body">
         				
 	                    <form role="form" action="" method="POST" class="report-from">
@@ -69,13 +69,14 @@
                                 <tbody>
                                     <tr>
                                         <td><img class="rounded-circle me-2" width="30" height="30" src="{{request.user.user.profile_pic.url}}" />{{request.user.user.fullname}}</td>
-                                        <td><img class="rounded-circle me-2" width="30" height="30" src="" />${post.author}</td>
+                                        <td><img class="rounded-circle me-2" width="30" height="30" src="" /><a id="output"></a><a id="output2"></a></td>
                                     </tr>
                                 </tbody>
                             </table>
                             <p> Please provide infomration on why you are reporting this user:</p>
 	                        <div class="form-group">
                                 {{ form.as_p }}
+                                
 	                        </div>
 	                        <button type="submit" class="btn">Report</button>
 	                    </form>
@@ -86,7 +87,13 @@
         	</div>
         </div>
 
-
+        <script>
+            window.onload = function getinfo(){
+                var username = sessionStorage.getItem("first");
+                document.getElementById('output2').innerHTML = username;
+                
+            };
+        </script>
         <!-- Javascript -->
         <script src="{% static 'report/js/jquery-1.11.1.min.js'%}"></script>
         <script src="{% static 'report/bootstrap/js/bootstrap.min.js'%}"></script>
