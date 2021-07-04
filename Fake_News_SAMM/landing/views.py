@@ -48,7 +48,7 @@ def ajaxrepost(request):
 @login_required
 def ajaxcomment(request):
     uid = request.user.id
-    user = User.objec
+    user = User.objects.get(id=uid)
     id = request.POST.get('id')
     content = request.POST.get('content','')
     tw = Twitter.objects.get(id=id)
